@@ -3,6 +3,9 @@
 You can create Networking Policies allowing traffic from only
 certain Pods.
 
+
+这个网络策略仅允许来自某些`POD`的流量。
+
 **Use Case:**
 - Restrict traffic to a service only to other microservices that need
   to use it.
@@ -13,6 +16,8 @@ certain Pods.
 ### Example
 
 Suppose your application is a REST API server, marked with labels `app=bookstore` and `role=api`:
+
+同之前一样，我们启动一个服务，这个服务的`POD`带有两个标签`app=bookstore`和`role=api`
 
     kubectl run apiserver --image=nginx --labels app=bookstore,role=api --expose --port 80
 
@@ -29,11 +34,13 @@ spec:
     matchLabels:
       app: bookstore
       role: api
+  # 我们设置网络策略，这个策略用在这类`pod`
   ingress:
   - from:
       - podSelector:
           matchLabels:
             app: bookstore
+  # 入口流量只允许带`app=bookstore`标签的`pod`访问
 ```
 
 ```sh
