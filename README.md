@@ -1,3 +1,8 @@
+![](https://img.shields.io/badge/build%20-success-brightgreen.svg)
+![](https://img.shields.io/badge/language-python-orange.svg)
+![](https://img.shields.io/aur/license/yaourt.svg)
+
+
 ![You can get stuff like this](img/1.gif)
 _You can get stuff like this with Network Policies..._
 
